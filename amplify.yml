@@ -10,7 +10,6 @@ frontend:
         - echo "GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD" >> .env
         - echo "CONTACT_RECEIVER_EMAIL=$CONTACT_RECEIVER_EMAIL" >> .env
         - npm run build
-        - npm run build
 
   artifacts:
     baseDirectory: .next
