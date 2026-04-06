@@ -87,7 +87,7 @@ export default function Navbar() {
             padding: 0,
           }}
         >
-          {/* {NAV_LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -108,7 +108,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             </li>
-          ))} */}
+          ))}
         </ul>
 
         {/* Right side: CTA + Hamburger */}
