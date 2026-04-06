@@ -24,7 +24,10 @@ const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 
 function isRateLimited(ip) {
   const now = Date.now();
-  const entry = rateLimitMap.get(ip) ?? { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
+  const entry = rateLimitMap.get(ip) ?? {
+    count: 0,
+    resetAt: now + RATE_LIMIT_WINDOW_MS,
+  };
 
   if (now > entry.resetAt) {
     entry.count = 0;
@@ -47,10 +50,20 @@ const transporter = nodemailer.createTransport({
 
 // ─── POST handler ─────────────────────────────────────────────────────────────
 export async function POST(req) {
+  console.log("ENV CHECK", {
+    hasGmailUser: !!process.env.GMAIL_USER,
+    hasAppPassword: !!process.env.GMAIL_APP_PASSWORD,
+    hasReceiver: !!process.env.CONTACT_RECEIVER_EMAIL,
+    gmailUser: process.env.GMAIL_USER, // remove after debugging
+  });
+
   try {
     // Rate limit check
     const ip =
-      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      req.headers
+        .get("x-forwarded-for")
+        ?.split(",")[0]
+        ?.trim() ??
       req.headers.get("x-real-ip") ??
       "unknown";
 
