@@ -50,13 +50,6 @@ const transporter = nodemailer.createTransport({
 
 // ─── POST handler ─────────────────────────────────────────────────────────────
 export async function POST(req) {
-  console.log("ENV CHECK", {
-    hasGmailUser: !!process.env.GMAIL_USER,
-    hasAppPassword: !!process.env.GMAIL_APP_PASSWORD,
-    hasReceiver: !!process.env.CONTACT_RECEIVER_EMAIL,
-    gmailUser: process.env.GMAIL_USER, // remove after debugging
-  });
-
   try {
     // Rate limit check
     const ip =
