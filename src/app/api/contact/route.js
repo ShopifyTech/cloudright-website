@@ -97,7 +97,7 @@ export async function POST(req) {
     });
 
     // Build mailto link using the raw (but escaped) values
-    const subject = encodeURIComponent("Re: Your enquiry to CloudRight");
+    const subject = encodeURIComponent("Re: Your business enquiry to CloudRight");
     const body = encodeURIComponent(
       `Hi ${name.trim()},\n\nThanks for reaching out to CloudRight.\n\n`,
     );
@@ -126,7 +126,7 @@ export async function POST(req) {
           <!-- Header -->
           <tr>
             <td style="padding-bottom:16px;">
-              <h1 style="margin:0;font-size:22px;color:#1a1a2e;">New Contact Enquiry</h1>
+              <h1 style="margin:0;font-size:22px;color:#1a1a2e;">New Business Enquiry</h1>
               <p style="margin:4px 0 0;font-size:14px;color:#555;">from ${safeName}</p>
             </td>
           </tr>

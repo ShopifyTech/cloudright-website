@@ -300,9 +300,9 @@ export const CASES = [
 // STATS
 export const STATS = [
   { target: 3, suffix: "+", label: "Years Experience" },
-  { target: 50, suffix: "+", label: "Clients Served" },
+  { target: 20, suffix: "+", label: "Clients Served" },
   { target: 120, suffix: "+", label: "Projects Delivered" },
-  { target: null, symbol: "∞", label: "Open Source" },
+  { target: 15, suffix: "+", label: "Open Source" },
 ];
 
 // PARTNERS
