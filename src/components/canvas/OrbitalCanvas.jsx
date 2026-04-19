@@ -105,7 +105,8 @@ export default function OrbitalCanvas() {
         const sy = cy + Math.cos(i * 97.3) * base * 1.05;
         ctx.beginPath();
         ctx.arc(sx, sy, 0.8 + (i % 2) * 0.6, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${0.1 + 0.2 * Math.abs(Math.sin(i + T * 0.5))})`;
+        ctx.fillStyle = `rgba(255,255,255,${0.1 +
+          0.2 * Math.abs(Math.sin(i + T * 0.5))})`;
         ctx.fill();
       }
 
@@ -181,7 +182,8 @@ export default function OrbitalCanvas() {
           const pulse = 0.24 + 0.14 * Math.sin(T * 2 + i * 0.5);
           ctx.beginPath();
           ctx.arc(0, 0, r, a0, a1);
-          ctx.strokeStyle = `rgba(0,212,255,${pulse * (ri === 0 ? 0.38 : 0.2)})`;
+          ctx.strokeStyle = `rgba(0,212,255,${pulse *
+            (ri === 0 ? 0.65 : 0.35)})`;
           ctx.lineWidth = ri === 0 ? 1.5 : 1;
           ctx.stroke();
         }
@@ -192,8 +194,8 @@ export default function OrbitalCanvas() {
       nodes.forEach((n) => {
         const g = ctx.createLinearGradient(cx, cy, n.nx, n.ny);
         g.addColorStop(0, "transparent");
-        g.addColorStop(0.55, hexRgba(n.color, 0.1));
-        g.addColorStop(1, hexRgba(n.color, 0.28));
+        g.addColorStop(0.55, hexRgba(n.color, 0.2));
+        g.addColorStop(1, hexRgba(n.color, 0.5));
         ctx.beginPath();
         ctx.moveTo(cx, cy);
         ctx.lineTo(n.nx, n.ny);
@@ -215,7 +217,8 @@ export default function OrbitalCanvas() {
         ctx.beginPath();
         ctx.moveTo(a.nx, a.ny);
         ctx.quadraticCurveTo(cpx, cpy, b.nx, b.ny);
-        ctx.strokeStyle = `rgba(0,212,255,${0.06 + 0.04 * Math.sin(T * 1.2 + i)})`;
+        ctx.strokeStyle = `rgba(0,212,255,${0.06 +
+          0.04 * Math.sin(T * 1.2 + i)})`;
         ctx.lineWidth = 0.9;
         ctx.stroke();
       }
@@ -250,7 +253,7 @@ export default function OrbitalCanvas() {
         ctx.fillStyle = n.color;
         ctx.fill();
         const hg = ctx.createRadialGradient(px, py, 0, px, py, p.size * 4);
-        hg.addColorStop(0, hexRgba(n.color, 0.5));
+        hg.addColorStop(0, hexRgba(n.color, 0.75));
         hg.addColorStop(1, "transparent");
         ctx.beginPath();
         ctx.arc(px, py, p.size * 4, 0, Math.PI * 2);
@@ -296,7 +299,7 @@ export default function OrbitalCanvas() {
         const pulse = Math.sin(T * 2 - i * 0.8) * 0.5 + 0.5;
         const pr = cR * (0.58 + i * 0.32) + pulse * 6;
         const rg2 = ctx.createRadialGradient(cx, cy, pr * 0.7, cx, cy, pr);
-        rg2.addColorStop(0, `rgba(0,212,255,${0.2 * (1 - i / 4) * pulse})`);
+        rg2.addColorStop(0, `rgba(0,212,255,${0.35 * (1 - i / 4) * pulse})`);
         rg2.addColorStop(1, "transparent");
         ctx.beginPath();
         ctx.arc(cx, cy, pr, 0, Math.PI * 2);
@@ -397,7 +400,8 @@ export default function OrbitalCanvas() {
         ctx.arc(n.nx, n.ny, r, 0, Math.PI * 2);
         ctx.fillStyle = nfg;
         ctx.fill();
-        ctx.strokeStyle = hexRgba(n.color, isH ? 0.9 : 0.6);
+        ctx.strokeStyle = hexRgba(n.color, isH ? 1 : 0.85);
+        halo.addColorStop(0, hexRgba(n.color, isH ? 0.5 : 0.25));
         ctx.lineWidth = isH ? 2 : 1.5;
         ctx.stroke();
 

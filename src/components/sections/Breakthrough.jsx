@@ -207,9 +207,11 @@ export default function Breakthrough() {
           lineHeight: 1,
           whiteSpace: "nowrap",
           background:
-            "linear-gradient(120deg, rgba(255,255,255,0.06), rgba(0,212,255,0.12), rgba(255,255,255,0.06))",
+            "linear-gradient(120deg, rgba(0,212,255,0.12), rgba(0,212,255,0.35))",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
+          opacity: 0.8,
+          textShadow: "0 0 60px rgba(0,212,255,0.12)",
           backgroundClip: "text",
           pointerEvents: "none",
         }}
